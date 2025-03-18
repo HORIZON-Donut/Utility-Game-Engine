@@ -1,3 +1,7 @@
 # Visual Studio config
 .vs/*
 *.vs
+
+# Build directory
+# A directory create for testing on build during development
+[Bb]uild
