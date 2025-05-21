@@ -1,0 +1,4 @@
+#ifndef INCLUDE_QUATERNION_H
+#define INCLUDE_QUATERNION_H
+
+#endif
