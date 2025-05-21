@@ -1,0 +1,4 @@
+#ifndef INCLUDE_COLLISION_H
+#define INCLUDE_COLLISION_H
+
+#endif
