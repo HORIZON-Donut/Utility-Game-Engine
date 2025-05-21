@@ -115,7 +115,7 @@ run_test()
 	echo "Test Windows build"
 	for exe in $(dirname $WIN64_TESTTARGET)/*; do
 		echo "Test $exe"
-		wine $exe
+		$exe
 	done
 }
 
