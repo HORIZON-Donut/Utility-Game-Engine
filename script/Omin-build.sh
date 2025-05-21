@@ -15,6 +15,7 @@ WIN64_LDFLAGES=" "
 TEST="test"
 SRCS="src"
 OBJS="obj"
+DEBUG="debug"
 
 LINUX_SOURCE="Linux"
 LINUX_TEST="TestLinux"
@@ -67,6 +68,23 @@ compile()
 	done
 }
 
+buildMain()
+{
+	local CC=$1
+	local Source=$2
+	local target=$3
+	local ldFlages=$4
+
+	echo "Linking object file"
+
+	objs_files = $(ls $OBJS/$Source/*.o)
+	echo "Object file:"
+	echo "$objs_files"
+	echo "Build target: $taregt"
+
+	$CC $LDFLAGES $ldFlages -o $target $objs_files
+}
+
 clean()
 {
 	echo "Clean up object file and target"
@@ -91,6 +109,11 @@ run_test()
 }
 
 case $1 in
+
+	"build")
+	buildMain
+	;;
+
 	"clean")
 	clean
 	;;
