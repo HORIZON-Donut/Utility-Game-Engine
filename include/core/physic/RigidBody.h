@@ -8,11 +8,11 @@ typedef struct RigidBody
     Vector3 Velocity;
     Vector3 Acceleration;
 
+    int is_gravity;
+    int is_static;
+
     double mass;
     double inverse_mass;
-    
-    bool is_gravity;
-    bool is_static;
 }RigidBody;
 
 #endif
