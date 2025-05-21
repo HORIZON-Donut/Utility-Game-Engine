@@ -48,6 +48,7 @@ compile()
 		$CC $CFLAGES $cFlages -c $src_file -o $obj_file
 	done
 
+	echo "Compiling test file..."
 	for test_file in $TEST/*.c; do
 		test_obj="$OBJS/$Entry/$(basename ${test_file%.c}.o)"
 		echo "Compiling $test_file --> $test_obj"
