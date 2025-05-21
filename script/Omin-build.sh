@@ -68,6 +68,12 @@ compile()
 	done
 }
 
+compileAll()
+{
+	compile $LINUX_CC $LINUX_SOURCE $LINUX_TEST $LINUX_TESTTARGET
+	compile $WIN64_CC $WIN64_SOURCE $WIN64_TEST $WIN64_TESTTARGET
+}
+
 buildMain()
 {
 	local CC=$1
