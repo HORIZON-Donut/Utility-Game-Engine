@@ -108,30 +108,35 @@ run_test()
 	done
 }
 
-case $1 in
+main()
+{
+	case $1 in
 
-	"build")
-	buildMain
-	;;
+		"build")
+		buildMain
+		;;
 
-	"clean")
-	clean
-	;;
+		"clean")
+		clean
+		;;
 
-	"test")
-	run_test
-	;;
+		"test")
+		run_test
+		;;
 
-	"linux")
-	compile $LINUX_CC $LINUX_SOURCE $LINUX_TEST $LINUX_TESTTARGET
-	;;
+		"linux")
+		compile $LINUX_CC $LINUX_SOURCE $LINUX_TEST $LINUX_TESTTARGET
+		;;
 
-	"win64")
-	compile $WIN64_CC $WIN64_SOURCE $WIN64_TEST $WIN64_TESTTARGET
-	;;
+		"win64")
+		compile $WIN64_CC $WIN64_SOURCE $WIN64_TEST $WIN64_TESTTARGET
+		;;
 
-	*)
-	compile $LINUX_CC $LINUX_SOURCE $LINUX_TEST $LINUX_TESTTARGET
-	compile $WIN64_CC $WIN64_SOURCE $WIN64_TEST $WIN64_TESTTARGET
-	;;
-esac
+		*)
+		compile $LINUX_CC $LINUX_SOURCE $LINUX_TEST $LINUX_TESTTARGET
+		compile $WIN64_CC $WIN64_SOURCE $WIN64_TEST $WIN64_TESTTARGET
+		;;
+	esac
+}
+
+main
