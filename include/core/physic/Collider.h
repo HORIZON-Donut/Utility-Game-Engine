@@ -3,7 +3,7 @@
 
 #include "Vector.h"
 
-enum ColliderType { SPHERE, BOX, CAPSUALE};
+typedef enum ColliderType { SPHERE, BOX, CAPSUALE}ColliderType;
 
 typedef struct Collider
 {
