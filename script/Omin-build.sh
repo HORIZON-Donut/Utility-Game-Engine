@@ -3,7 +3,14 @@
 LINUX_CC="gcc"
 WIN64_CC="x86_64-w64-mingw32-gcc"
 
-CFLAGES="-Wall -Wextra -Iinclude"
+TEST="test"
+SRCS="src"
+OBJS="obj"
+DEBUG="debug"
+INCLUDE="include"
+INCLUDES=$(find $INCLUDE -mindepth 0 -type d | sed "s|^|-I|" | tr '\n' ' ')
+
+CFLAGES="-Wall -Wextra"
 LDFLAGES=
 
 LINUX_CFLAGES=" "
@@ -11,11 +18,6 @@ WIN64_CFLAGES=" "
 
 LINUX_LDFLAGES=" "
 WIN64_LDFLAGES=" "
-
-TEST="test"
-SRCS="src"
-OBJS="obj"
-DEBUG="debug"
 
 LINUX_SOURCE="Linux"
 LINUX_TEST="TestLinux"
@@ -42,17 +44,17 @@ compile()
 	mkdir -p $(dirname $TESTTARGET)
 
 	echo "Compiling soruce file..."
-	for src_file in $SRCS/*.c; do
+	for src_file in $SRCS/**/*.c; do
 		obj_file="$OBJS/$Source/$(basename ${src_file%.c}.o)"
 		echo "compiling $src_file --> $obj_file"
-		$CC $CFLAGES $cFlages -c $src_file -o $obj_file
+		$CC $CFLAGES $INCLUDES $cFlages -c $src_file -o $obj_file
 	done
 
 	echo "Compiling test file..."
 	for test_file in $TEST/*.c; do
 		test_obj="$OBJS/$Entry/$(basename ${test_file%.c}.o)"
 		echo "Compiling $test_file --> $test_obj"
-		$CC $CFLAGES $cFlages -c $test_file -o $test_obj
+		$CC $CFLAGES $INCLUDES $cFlages -c $test_file -o $test_obj
 	done
 
 	echo "Linking object file"
