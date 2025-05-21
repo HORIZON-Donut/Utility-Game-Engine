@@ -4,10 +4,12 @@ LINUX_CC="gcc"
 WIN64_CC="x86_64-w64-mingw32-gcc"
 
 TEST="test"
-SRCS="src"
+SRC="src"
 OBJS="obj"
 DEBUG="debug"
 INCLUDE="include"
+
+SRCS=$(find $SRC -name "*.c")
 INCLUDES=$(find $INCLUDE -mindepth 0 -type d | sed "s|^|-I|" | tr '\n' ' ')
 
 CFLAGES="-Wall -Wextra"
@@ -44,7 +46,7 @@ compile()
 	mkdir -p $(dirname $TESTTARGET)
 
 	echo "Compiling soruce file..."
-	for src_file in $SRCS/**/*.c; do
+	for src_file in $SRCS; do
 		obj_file="$OBJS/$Source/$(basename ${src_file%.c}.o)"
 		echo "compiling $src_file --> $obj_file"
 		$CC $CFLAGES $INCLUDES $cFlages -c $src_file -o $obj_file
