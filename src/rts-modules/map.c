@@ -6,6 +6,6 @@ static Grid** map_data;
 
 int loadMap(char* map)
 {
-	if(map == null) return 1;
+	if(map == NULL) return 1;
 	return 0;
 }
