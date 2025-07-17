@@ -1,7 +1,7 @@
 #ifndef INCLUDE_MAP_H
 #define INCLUDE_MAP_H
 
-typedef struct Node
+typedef struct Grid
 {
 	unsigned int id;
 	int x;
@@ -11,7 +11,7 @@ typedef struct Node
 	char obstracle_class;
 
 	int occupied;
-}Node;
+}Grid;
 
 int loadMap(char* map);
 
