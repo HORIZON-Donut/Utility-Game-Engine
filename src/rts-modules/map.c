@@ -1,4 +1,5 @@
 #include "map.h"
+#include <stddef.h>
 
 #define MAXSIZE 2048
 
