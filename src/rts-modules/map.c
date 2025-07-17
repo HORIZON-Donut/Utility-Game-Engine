@@ -1,7 +1,8 @@
 #include "map.h"
 
 #define MAXSIZE 2048
-Grid** map_data;
+
+static Grid** map_data;
 
 int loadMap(char* map)
 {
